@@ -1,6 +1,7 @@
+import { Entry } from "contentful";
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { RMCharacter, ContextState, LoadingStatus } from "../common/types";
-import { RickCharacters } from "../services/RickApi";
+import { ContextState, LoadingStatus, Product } from "../common/types";
+import { ContentfulContent } from "../services/Contentful";
 
 const ctxt = createContext<ContextState>({
   status: "LOADING",
@@ -10,24 +11,24 @@ const ctxt = createContext<ContextState>({
 const Provider: React.FC = ({ children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<LoadingStatus>("LOADING");
-  const [characters, setCharacters] = useState<RMCharacter[]>([]);
+  const [products, setProducts] = useState<Entry<Product>[]>([]);
 
   useEffect(() => {
-    RickCharacters.getCharacters(Math.floor(Math.random() * 34))
-      .then((data: RMCharacter[]) => {
-        setCharacters(data);
+    ContentfulContent.getProducts("product")
+      .then((data: Entry<Product>[]) => {
+        setProducts(data);
         setLoading("LOADED");
       })
       .catch((err) => {
         console.log(err);
         setLoading("ERROR");
-        setCharacters([]);
+        setProducts([]);
       });
   }, []);
 
   const context: ContextState = {
     status: loading,
-    value: { characters: characters },
+    value: { products: products },
     modalStatus: isOpen,
     toogleOpen: () => (isOpen ? setIsOpen(false) : setIsOpen(true)),
   };

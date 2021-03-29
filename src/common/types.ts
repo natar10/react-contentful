@@ -1,31 +1,34 @@
-import { MouseEventHandler } from "react";
+import { Entry, Asset } from "contentful";
 
 export interface AppContextInterface {
-  characters: RMCharacter[];
-}
-export interface GameContextInterface {
-  character: RMCharacter | undefined;
+  products: Entry<Product>[];
 }
 
-export type RMCharacter = {
-  id: number;
-  name: string;
-  status: string;
-  species: string;
-  gender: string;
-  image: string;
-  episode: string[];
-};
+export interface Product {
+  productName: string;
+  slug: string;
+  productDescription: string;
+  sizetypecolor: string;
+  image: Asset[];
+  tags: string[];
+  categories: Entry<Category>[];
+  price: number;
+  brand: Entry<Brand>;
+  quantity: number;
+  sku: string;
+  website: string;
+}
 
-export type RMEpisode = {
-  id: number;
-  name: string;
-  air_date: string;
-  episode: string;
-  characters: string[];
-  url: string;
-  created: string;
-};
+export interface Category {
+  categoryDescription: string;
+  title: string;
+  icon: Asset;
+}
+export interface Brand {
+  companyDescription: string;
+  companyName: string;
+  logo: Asset;
+}
 
 export type LoadingStatus = "LOADING" | "ERROR" | "LOADED";
 
@@ -38,30 +41,6 @@ export type ContextState =
       toogleOpen?: () => void;
     };
 
-export type GameContextState =
-  | {
-      status: "LOADING" | "ERROR";
-      points: number;
-      lifes: number;
-      modalStatus: boolean;
-    }
-  | {
-      status: "LOADED";
-      points: number;
-      question: number;
-      lifes: number;
-      randomCharacters: RMCharacter[] | undefined;
-      value: GameContextInterface;
-      modalStatus: boolean;
-      toogleOpen?: () => void;
-      reset?: () => void;
-      checkAnswer?: (a: number) => void;
-      nextCharacter?: () => void;
-    };
-
 export interface Props {
   path: string;
-}
-export interface ClueProps {
-  episode: string | null;
 }
