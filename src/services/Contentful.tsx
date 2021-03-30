@@ -1,5 +1,6 @@
 import { Product } from "../common/types";
 import { Entry, EntryCollection, ContentfulClientApi } from "contentful";
+import { CONTENTFUL_CREDENTIALS } from "../common/constants";
 const contentful = require("contentful");
 
 class ContentfulImpl {
@@ -7,8 +8,8 @@ class ContentfulImpl {
 
   constructor() {
     this.client = contentful.createClient({
-      space: "2kv65giue9pw",
-      accessToken: "nd15J23hdG9drmm4hmz7WqK5W7hq8-akCeXgLnEGh58",
+      space: CONTENTFUL_CREDENTIALS.space,
+      accessToken: CONTENTFUL_CREDENTIALS.accessToken,
     });
   }
 
