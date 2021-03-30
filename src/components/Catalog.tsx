@@ -1,17 +1,17 @@
 import React from "react";
 import { useAppContext } from "../context/AppContext";
 import { Asset } from "contentful";
-import { Col, Row, Image, Spinner } from "react-bootstrap";
+import { Col, Row, Image, Spinner, Container } from "react-bootstrap";
 
 const Catalog = () => {
   const data = useAppContext();
   console.log(data);
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-md-12 text-center">
+    <Container>
+      <Row>
+        <Col className="text-center">
           {data.status === "LOADED" ? (
-            <div>
+            <>
               {data.value.products.map((product) => {
                 return (
                   <div className="py-4" key={product.sys.id}>
@@ -48,15 +48,15 @@ const Catalog = () => {
                   </div>
                 );
               })}
-            </div>
+            </>
           ) : (
             <Spinner animation="border" role="status">
               <span className="sr-only">Loading...</span>
             </Spinner>
           )}
-        </div>
-      </div>
-    </div>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
