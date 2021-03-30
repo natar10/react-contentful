@@ -11,23 +11,12 @@ export interface Product {
   sizetypecolor: string;
   image: Asset[];
   tags: string[];
-  categories: Entry<Category>[];
+  categories: string;
   price: number;
-  brand: Entry<Brand>;
+  brand: string;
   quantity: number;
   sku: string;
   website: string;
-}
-
-export interface Category {
-  categoryDescription: string;
-  title: string;
-  icon: Asset;
-}
-export interface Brand {
-  companyDescription: string;
-  companyName: string;
-  logo: Asset;
 }
 
 export type LoadingStatus = "LOADING" | "ERROR" | "LOADED";

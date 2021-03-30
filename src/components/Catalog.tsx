@@ -18,16 +18,7 @@ const Catalog = () => {
                     <h2 className="pb-4">{product.fields.productName}</h2>
                     <Row>
                       <Col className="text-center" md={7}>
-                        {product.fields.image.map((img: Asset) => {
-                          return (
-                            <Image
-                              key={img.sys.id}
-                              src={img.fields.file.url}
-                              width="70%"
-                              thumbnail
-                            />
-                          );
-                        })}
+                        [Img Here]
                         <span className="d-block">
                           <strong>Quatity: </strong>
                           {product.fields.quantity}
@@ -46,22 +37,10 @@ const Catalog = () => {
                           {product.fields.productDescription}
                           <div className="d-block">
                             <strong>Brand: </strong>
-                            <img
-                              width="80"
-                              src={
-                                product.fields.brand.fields.logo.fields.file.url
-                              }
-                            />
-                            <br />
-                            {product.fields.brand.fields.companyName}
+                            [Brand Here]
                           </div>
                           <div className="mt-4">
-                            <strong>Categories:</strong>{" "}
-                            {product.fields.categories.map((category) => (
-                              <span key={category.sys.id}>
-                                {category.fields.title}
-                              </span>
-                            ))}
+                            <strong>Categories:</strong> [Categories Here]
                           </div>
                         </div>
                       </Col>

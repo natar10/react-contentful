@@ -1,6 +1,6 @@
 const CONTENTFUL_CREDENTIALS = {
-  space: "cqddjhh1trp9",
-  accessToken: "ENo9OApmDxqYTHtrn2P2cZu0ARSs7Ww8PgzA8sTqzCo",
+  space: "5vr4590mbhme",
+  accessToken: "qW2I0MbBTgw6YBtjLvjzlmHwmUaAl3zOcmvWcLikggo",
 };
 
 export { CONTENTFUL_CREDENTIALS };
