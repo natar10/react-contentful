@@ -1,6 +1,6 @@
-# Trivia Game for Rick and Morty
+# From Contentful to React
 
-This react.js application creates a small trivia game for Rick and Morty using the API.
+This react js. application is an example of how to use the Contentful SDK
 
 ## Prerequisites
 
@@ -32,7 +32,3 @@ npm run build
 ```bash
 npm run test
 ```
-
-## Rick and Morty API
-
-You can find out more about the API in the following link: [https://rickandmortyapi.com/](https://rickandmortyapi.com/)
