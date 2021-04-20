@@ -15,32 +15,37 @@ const Catalog = () => {
               {data.value.products.map((product) => {
                 return (
                   <div className="py-4" key={product.sys.id}>
-                    <h2 className="pb-4">{product.fields.productName}</h2>
+                    <h2 className="pb-4">{product.fields.name}</h2>
                     <Row>
                       <Col className="text-center" md={7}>
-                        [Img Here]
+                        {product.fields.avatar && (
+                          <Image
+                            src={product.fields.avatar.fields.file.url}
+                            width="70%"
+                            thumbnail
+                          />
+                        )}
                         <span className="d-block">
-                          <strong>Quatity: </strong>
-                          {product.fields.quantity}
+                          <strong>Favorite Artist: </strong>
+                          {product.fields.favoriteArtist}
                         </span>
                         <span className="d-block">
-                          <strong>SKU: </strong>
-                          {product.fields.sku}
+                          <strong>Favorite Movie: </strong>
+                          {product.fields.favoriteMovie}
                         </span>
                         <span className="d-block">
-                          <strong>Tags: </strong>
-                          {product.fields.tags.toString()}
+                          <strong>Favorite Sport: </strong>
+                          {product.fields.favoriteSport}
+                        </span>
+                        <span className="d-block">
+                          <strong>Favorite TV Series: </strong>
+                          {product.fields.favoriteTvSeries}
                         </span>
                       </Col>
                       <Col md={5}>
                         <div className="text-justify pt-4">
-                          {product.fields.productDescription}
                           <div className="d-block">
-                            <strong>Brand: </strong>
-                            [Brand Here]
-                          </div>
-                          <div className="mt-4">
-                            <strong>Categories:</strong> [Categories Here]
+                            <strong>I LEARNED IN PANDEMY: </strong>
                           </div>
                         </div>
                       </Col>

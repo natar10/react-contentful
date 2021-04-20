@@ -1,4 +1,4 @@
-import { Product } from "../common/types";
+import { Profile } from "../common/types";
 import { Entry, EntryCollection, ContentfulClientApi } from "contentful";
 import { CONTENTFUL_CREDENTIALS } from "../common/constants";
 const contentful = require("contentful");
@@ -13,13 +13,13 @@ class ContentfulImpl {
     });
   }
 
-  public getProducts(type: string): Promise<Entry<Product>[]> {
+  public getProfiles(type: string): Promise<Entry<Profile>[]> {
     return this.client
-      .getEntries<Product>({
+      .getEntries<Profile>({
         content_type: type,
         limit: 300,
       })
-      .then((response: EntryCollection<Product>) => {
+      .then((response: EntryCollection<Profile>) => {
         return response.items;
       })
       .catch((err: any) => {

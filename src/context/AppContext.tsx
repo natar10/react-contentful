@@ -1,6 +1,6 @@
 import { Entry } from "contentful";
 import React, { createContext, useContext, useState, useEffect } from "react";
-import { ContextState, LoadingStatus, Product } from "../common/types";
+import { ContextState, LoadingStatus, Profile } from "../common/types";
 import { ContentfulContent } from "../services/Contentful";
 
 const ctxt = createContext<ContextState>({
@@ -11,11 +11,11 @@ const ctxt = createContext<ContextState>({
 const Provider: React.FC = ({ children }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<LoadingStatus>("LOADING");
-  const [products, setProducts] = useState<Entry<Product>[]>([]);
+  const [products, setProducts] = useState<Entry<Profile>[]>([]);
 
   useEffect(() => {
-    ContentfulContent.getProducts("product")
-      .then((data: Entry<Product>[]) => {
+    ContentfulContent.getProfiles("profile")
+      .then((data: Entry<Profile>[]) => {
         setProducts(data);
         setLoading("LOADED");
       })

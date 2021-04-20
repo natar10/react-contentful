@@ -1,22 +1,23 @@
 import { Entry, Asset } from "contentful";
 
 export interface AppContextInterface {
-  products: Entry<Product>[];
+  products: Entry<Profile>[];
 }
 
-export interface Product {
-  productName: string;
-  slug: string;
-  productDescription: string;
-  sizetypecolor: string;
-  image: Asset[];
-  tags: string[];
-  categories: string;
-  price: number;
-  brand: string;
-  quantity: number;
-  sku: string;
-  website: string;
+export interface Profile {
+  name: string;
+  favoriteArtist: string;
+  favoriteMovie: string;
+  favoriteTvSeries: string;
+  favoriteSport: string;
+  pandemy: string;
+  avatar?: Asset;
+}
+
+export interface Brand {
+  companyName: string;
+  logo: Asset;
+  companyDescription: string;
 }
 
 export type LoadingStatus = "LOADING" | "ERROR" | "LOADED";
